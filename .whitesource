@@ -1,3 +1,9 @@
 {
   "settingsInheritedFrom": "MendDemo-josh/whitesource-config@main"
+ },
+  "scanSettingsSAST": {
+    "enableScan": true,
+    "scanPullRequests": true,
+    "incrementalScan": false,
+    "baseBranches": []
 }
