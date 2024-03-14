@@ -54,7 +54,7 @@ public class VulnerableComponentsLesson extends AssignmentEndpoint {
                 .replace("> ", ">")
                 .replace(" <", "<");
       }
-      contact = (Contact) xstream.fromXML(payload);
+    //  contact = (Contact) xstream.fromXML(payload);
     } catch (Exception ex) {
       return failed(this).feedback("vulnerable-components.close").output(ex.getMessage()).build();
     }
