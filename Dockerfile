@@ -14,6 +14,10 @@ COPY --chown=webgoat target/webgoat-*.jar /home/webgoat/webgoat.jar
 EXPOSE 8080
 EXPOSE 9090
 
+# Mend traceability labels
+LABEL io.mend.image.dockerfile.path=Dockerfile
+LABEL org.opencontainers.image.source=https://github.com/<your github org>/WebGoat
+
 WORKDIR /home/webgoat
 ENTRYPOINT [ "java", \
    "-Duser.home=/home/webgoat", \
