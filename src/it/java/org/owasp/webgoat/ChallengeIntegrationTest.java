@@ -68,7 +68,6 @@ public class ChallengeIntegrationTest extends IntegrationTest {
     assertTrue(capturefFlags.contains("Admin lost password"));
   }
 
-  @TestingJosh
   void testChallenge5() {
     startLesson("Challenge5");
 
