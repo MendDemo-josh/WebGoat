@@ -68,7 +68,8 @@ public class ChallengeIntegrationTest extends IntegrationTest {
     assertTrue(capturefFlags.contains("Admin lost password"));
   }
 
-  void testChallenge5() {
+  @Test
+  public void testChallenge5() {
     startLesson("Challenge5");
 
     Map<String, Object> params = new HashMap<>();
