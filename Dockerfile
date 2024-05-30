@@ -7,12 +7,11 @@ RUN \
   chgrp -R 0 /home/webgoat && \
   chmod -R g=u /home/webgoat
 
-USER webgoat
 RUN curl -LJO https://raw.githubusercontent.com/OWASP/wrongsecrets/master/src/test/resources/RSAprivatekey.pem  && \
     curl -LJO https://raw.githubusercontent.com/OWASP/wrongsecrets/master/src/test/resources/secondkey.txt && \
     curl -LJO https://raw.githubusercontent.com/OWASP/wrongsecrets/master/src/test/resources/thirdkey.txt && \
     curl -LJO https://raw.githubusercontent.com/OWASP/wrongsecrets/master/src/test/resources/yourkey.txt
-
+USER webgoat
 COPY --chown=webgoat target/webgoat-*.jar /home/webgoat/webgoat.jar
 
 EXPOSE 8080
