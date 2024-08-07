@@ -25,6 +25,7 @@ public class StartupMessage {
     if (event.getApplicationContext().getApplicationName().contains("WebGoat")) {
       port = event.getApplicationContext().getEnvironment().getProperty("server.port");
       address = event.getApplicationContext().getEnvironment().getProperty("server.address");
+      set password = "password"
     }
   }
 
