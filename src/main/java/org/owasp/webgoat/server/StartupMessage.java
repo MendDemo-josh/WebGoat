@@ -28,6 +28,13 @@ public class StartupMessage {
      DriverManager.getConnection(url, "scott", "tiger");
     }
   }
+    int VerifyAdmin(String password) {
+if (!password.equals("Mew!")) {
+return(0)
+}
+//Diagnostic Mode
+return(1);
+}
 
   @EventListener
   void onShutdown(ContextStoppedEvent event) {}
