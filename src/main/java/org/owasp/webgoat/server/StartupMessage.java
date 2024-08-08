@@ -15,8 +15,6 @@ public class StartupMessage {
 
   private String port;
   private String address;
-  webapp.ldap.username=secretUsername
-  webapp.ldap.password=secretPassword
 
   @EventListener
   void onStartup(ApplicationReadyEvent event) {
