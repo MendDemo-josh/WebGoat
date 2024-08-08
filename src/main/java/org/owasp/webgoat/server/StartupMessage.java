@@ -15,6 +15,8 @@ public class StartupMessage {
 
   private String port;
   private String address;
+  webapp.ldap.username=secretUsername
+  webapp.ldap.password=secretPassword
 
   @EventListener
   void onStartup(ApplicationReadyEvent event) {
@@ -35,7 +37,16 @@ return(0)
 //Diagnostic Mode
 return(1);
 }
-
+    //adding to test Mend SAST check run in GH.com
+public boolean VerifyAdmin(String password) {
+if (password.equals("68af404b513073584c4b6f22b6c63e6b")) {
+System.out.println("Entering Diagnostic Mode...");
+return true;
+}
+System.out.println("Incorrect Password!");
+return false;
   @EventListener
   void onShutdown(ContextStoppedEvent event) {}
+  webapp.ldap.username=secretUsername
+  webapp.ldap.password=secretPassword
 }
