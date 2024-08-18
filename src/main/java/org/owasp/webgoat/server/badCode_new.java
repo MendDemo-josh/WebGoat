@@ -4,8 +4,8 @@ import java.sql.DriverManager;
 
 public class Calculator {
     public static void main(String[] args) {
-        String password = "mypassword";
-        DriverManager.getConnection("https://github.com", "test", "myPassword");
+        //String password = "mypassword";
+        //DriverManager.getConnection("https://github.com", "test", "myPassword");
 
         System.out.println(password);
         Scanner scanner = new Scanner(System.in); // 2
