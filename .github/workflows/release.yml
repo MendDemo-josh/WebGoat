@@ -79,7 +79,6 @@ jobs:
                 echo "Start Mend image scan"
                 echo "Image Name:" ${{steps.orgname.outputs.lowercase}}/${{steps.reponame.outputs.lowercase}}:${{ env.WEBGOAT_TAG_VERSION }}
                 ./mend image ${{steps.orgname.outputs.lowercase}}/${{steps.reponame.outputs.lowercase}}:${{ env.WEBGOAT_TAG_VERSION }} -s *//GH_${{github.event.repository.name}}//GH_${{github.event.repository.name}}_${{github.ref_name}}
-                ./mend iac -s *//GH_${{github.event.repository.name}}//GH_${{github.event.repository.name}}_${{github.ref_name}} 
                 ./mend code -s *//GH_${{github.event.repository.name}}//GH_${{github.event.repository.name}}_${{github.ref_name}} -j 2 --js 2
 
             - name: Mend CLI Image Scan on Main
