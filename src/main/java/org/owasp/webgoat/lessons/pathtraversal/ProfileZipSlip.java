@@ -1,5 +1,6 @@
 package org.owasp.webgoat.lessons.pathtraversal;
 
+import java.nio.file.Path;
 import static org.springframework.http.MediaType.ALL_VALUE;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -63,8 +64,11 @@ public class ProfileZipSlip extends ProfileUploadBase {
     var currentImage = getProfilePictureAsBase64();
 
     try {
-      var uploadedZipFile = tmpZipDirectory.resolve(file.getOriginalFilename());
-      FileCopyUtils.copy(file.getBytes(), uploadedZipFile.toFile());
+      Path targetPath = tmpZipDirectory.resolve(file.getOriginalFilename()).normalize();
+      if (!targetPath.startsWith(tmpZipDirectory)) {
+        throw new IOException("Invalid file path");
+      }
+      FileCopyUtils.copy(file.getBytes(), targetPath.toFile());
 
       ZipFile zip = new ZipFile(uploadedZipFile.toFile());
       Enumeration<? extends ZipEntry> entries = zip.entries();
