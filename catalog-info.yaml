@@ -1,1 +1,10 @@
-
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: WebGoat
+  annotations:
+    github.com/project-slug: MendDemo-josh/WebGoat
+spec:
+  type: service
+  lifecycle: unknown
+  owner: mend.io
