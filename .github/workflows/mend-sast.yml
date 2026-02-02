@@ -27,8 +27,10 @@ env:
       # TODO: Install and authenticate Mend CLI
       # Add the appropriate steps to install the Mend CLI and authenticate
       # before running the scan (for example, via `mend auth login`).
-      - name: Verify Mend CLI availability
-        run: mend --version || echo "Add a step above to install/authenticate the Mend CLI."
+      - name: Download Mend CLI
+        run: |
+         echo Downloading Mend CLI
+                curl -LJO https://downloads.mend.io/production/unified/latest/linux_amd64/mend && chmod +x mend
 
       - name: Run Mend SAST and generate SARIF
         run: |
