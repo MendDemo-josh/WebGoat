@@ -1,0 +1,42 @@
+yaml
+name: Mend SAST (SARIF upload)
+
+env:
+  MEND_EMAIL: josh.newton@mend.io
+  MEND_USER_KEY:455f0d561fea42589a00bfeb246fb175c349c047a831484b97dc429949098d1c
+  MEND_URL: https://saas.mend.io
+
+on:
+  push:
+      branches:
+          - v*
+          - main
+
+jobs:
+  mend-sast:
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      actions: read
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      # TODO: Install and authenticate Mend CLI
+      # Add the appropriate steps to install the Mend CLI and authenticate
+      # before running the scan (for example, via `mend auth login`).
+      - name: Verify Mend CLI availability
+        run: mend --version || echo "Add a step above to install/authenticate the Mend CLI."
+
+      - name: Run Mend SAST and generate SARIF
+        run: |
+          # Generate a SARIF report named results.sarif in the repo root
+          mend code --non-interactive --report --formats sarif --filename results || true
+
+      - name: Upload SARIF to GitHub
+        uses: github/codeql-action/upload-sarif@v4
+        with:
+          sarif_file: results.sarif
+          category: mend-sast
