@@ -16,9 +16,9 @@ jobs:
 
 env:
   MEND_EMAIL: josh.newton@mend.io
-  MEND_USER_KEY:455f0d561fea42589a00bfeb246fb175c349c047a831484b97dc429949098d1c
+  MEND_USER_KEY: 455f0d561fea42589a00bfeb246fb175c349c047a831484b97dc429949098d1c
   MEND_URL: https://saas.mend.io
-
+  
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
